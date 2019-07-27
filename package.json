@@ -1,0 +1,16 @@
+{
+  "name": "todo-v2",
+  "version": "1.0.0",
+  "description": "To Do ",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Camus Sama",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "prettier": "^1.18.2"
+  }
+}
