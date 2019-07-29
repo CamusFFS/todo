@@ -1,12 +1,9 @@
 (function() {
   'use strict';
 
-  var initial_model = {
-    todos: [],
-    hash: '#/'
+  var new_model = {
+    todos: []
   };
-
-  var new_model = { ...initial_model };
 
   function newTask() {
     var data = document.getElementsByClassName('new-task')[0].value;
@@ -70,6 +67,10 @@
     document.getElementsByClassName('footer')[0].style.display = 'none';
   }
 
+  function flagDisplay() {
+    console.log('coucou');
+  }
+
   function keyPressed(event) {
     if (event.keyCode == '13') {
       newTask();
@@ -79,4 +80,5 @@
   }
 
   window.addEventListener('keydown', keyPressed);
+  document.querySelectorAll('a').forEach(item => item.addEventListener('click', flagDisplay));
 })();
