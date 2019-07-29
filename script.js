@@ -28,7 +28,11 @@
     var parent = task.parentElement;
     var index = parent.id;
     var object = new_model.todos.find(i => i.id == index);
-    object.erased = true;
+    if (event.type === 'change') {
+      object.done = true;
+    } else {
+      object.erased = true;
+    }
     clearUI();
     print();
   }
@@ -46,7 +50,11 @@
         var button = document.createElement('button');
         button.addEventListener('click', removeTask);
         button.innerHTML = 'X';
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', removeTask);
         var node = document.createTextNode(item.title);
+        li.append(checkbox);
         li.appendChild(node);
         document
           .getElementsByClassName('todo-list')[0]
