@@ -45,6 +45,7 @@
       todos: []
     };
     clearUI();
+    toggleFooter();
   }
 
   function print() {
