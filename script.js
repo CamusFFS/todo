@@ -40,6 +40,13 @@
     while (ul.firstChild) ul.removeChild(ul.firstChild);
   }
 
+  function clearDB() {
+    new_model = {
+      todos: []
+    };
+    clearUI();
+  }
+
   function print() {
     function populate(item) {
       if (!item.done && !item.erased) {
@@ -118,5 +125,6 @@
 
   window.addEventListener('keydown', keyPressed);
   document.querySelectorAll('a').forEach(item => item.addEventListener('click', flagDisplay));
+  document.getElementsByClassName('clear')[0].addEventListener('click', clearDB);
   toggleFooter();
 })();
