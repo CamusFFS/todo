@@ -73,7 +73,38 @@
   }
 
   function flagDisplay() {
-    console.log('coucou');
+    switch (event.target.hash) {
+      case '#ToDo':
+        clearUI();
+        print();
+        break;
+      case '#Done':
+        clearUI();
+        new_model.todos.forEach(item =>
+          (function() {
+            if (item.done) {
+              var li = document.createElement('li');
+              var node = document.createTextNode(item.title);
+              li.appendChild(node);
+              document.getElementsByClassName('todo-list')[0].appendChild(li);
+            }
+          })()
+        );
+        break;
+      case '#Deleted':
+        clearUI();
+        new_model.todos.forEach(item =>
+          (function() {
+            if (item.erased) {
+              var li = document.createElement('li');
+              var node = document.createTextNode(item.title);
+              li.appendChild(node);
+              document.getElementsByClassName('todo-list')[0].appendChild(li);
+            }
+          })()
+        );
+        break;
+    }
   }
 
   function keyPressed(event) {
