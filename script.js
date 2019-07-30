@@ -32,6 +32,7 @@
     }
     clearUI();
     print();
+    toggleFooter();
   }
 
   function clearUI() {
@@ -64,7 +65,11 @@
   }
 
   function toggleFooter() {
-    document.getElementsByClassName('footer')[0].style.display = 'none';
+    if (new_model.todos.length === 0) {
+      document.getElementsByClassName('footer')[0].style.display = 'none';
+    } else {
+      document.getElementsByClassName('footer')[0].style.display = 'flex';
+    }
   }
 
   function flagDisplay() {
@@ -76,9 +81,11 @@
       newTask();
       clearUI();
       print();
+      toggleFooter();
     }
   }
 
   window.addEventListener('keydown', keyPressed);
   document.querySelectorAll('a').forEach(item => item.addEventListener('click', flagDisplay));
+  toggleFooter();
 })();
