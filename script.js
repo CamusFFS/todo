@@ -26,13 +26,18 @@
     var index = parent.id;
     var object = new_model.todos.find(i => i.id == index);
     if (event.type === 'change') {
+      parent.className = 'anim';
       object.done = true;
     } else {
+      parent.className = 'anim2';
       object.erased = true;
     }
-    clearUI();
-    print();
-    toggleFooter();
+
+    setTimeout(function() {
+      clearUI();
+      print();
+      toggleFooter();
+    }, 600);
   }
 
   function clearUI() {
