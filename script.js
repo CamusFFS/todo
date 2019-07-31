@@ -9,6 +9,15 @@
     var new_model = JSON.parse(localStorage.getItem('savedData'));
   }
 
+  document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+      print();
+      toggleFooter();
+    },
+    false
+  );
+
   function newTask() {
     var data = document.getElementsByClassName('new-task')[0].value;
     if (data == '') {
