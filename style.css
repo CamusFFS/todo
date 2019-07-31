@@ -11,6 +11,14 @@ body {
   font-weight: 300;
 }
 
+input:focus {
+  outline: none;
+}
+
+input[type='checkbox'] {
+  background: #fff;
+}
+
 .todoapp {
   background: #fff;
   margin: 130px 0 40px 0;
@@ -62,7 +70,7 @@ body {
 
 .main {
   position: relative;
-  z-index: 2;
+
   border-top: 1px solid #e6e6e6;
 }
 
@@ -72,10 +80,36 @@ body {
   height: 20px;
   text-align: center;
   border-top: 1px solid #e6e6e6;
-  display: flex;
+  display: none;
+  justify-content: space-evenly;
 }
 
 button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  opacity: 20;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: rosybrown;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: none;
+}
+
+button:hover {
+  color: red;
+  opacity: 100;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
   margin: 0;
   padding: 0;
   border: 0;
@@ -103,6 +137,7 @@ button {
  */
 
 li.anim {
+  text-decoration: line-through;
   -webkit-animation: slide-out-blurred-right 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
   -webkit-animation: slide-out-blurred-right 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
 }

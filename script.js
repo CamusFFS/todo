@@ -1,9 +1,13 @@
 (function() {
   'use strict';
 
-  var new_model = {
-    todos: []
-  };
+  if (localStorage.getItem('savedData') === null) {
+    var new_model = {
+      todos: []
+    };
+  } else {
+    var new_model = JSON.parse(localStorage.getItem('savedData'));
+  }
 
   function newTask() {
     var data = document.getElementsByClassName('new-task')[0].value;
@@ -17,6 +21,7 @@
         erased: false
       });
       document.getElementsByClassName('new-task')[0].value = '';
+      localStorage.setItem('savedData', JSON.stringify(new_model));
     }
   }
 
@@ -28,9 +33,11 @@
     if (event.type === 'change') {
       parent.className = 'anim';
       object.done = true;
+      localStorage.setItem('savedData', JSON.stringify(new_model));
     } else {
       parent.className = 'anim2';
       object.erased = true;
+      localStorage.setItem('savedData', JSON.stringify(new_model));
     }
 
     setTimeout(function() {
@@ -49,6 +56,7 @@
     new_model = {
       todos: []
     };
+    localStorage.clear();
     clearUI();
     toggleFooter();
   }
@@ -73,7 +81,6 @@
           .appendChild(button);
       }
     }
-
     new_model.todos.forEach(item => populate(item));
   }
 
@@ -132,5 +139,4 @@
   window.addEventListener('keydown', keyPressed);
   document.querySelectorAll('a').forEach(item => item.addEventListener('click', flagDisplay));
   document.getElementsByClassName('clear')[0].addEventListener('click', clearDB);
-  toggleFooter();
 })();
